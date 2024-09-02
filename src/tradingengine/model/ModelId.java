@@ -12,8 +12,3 @@ public class ModelId extends Model {
 	this.id = id;
     }
 }
-package tradingengine.model;
-
-public class ModelId {
-
-}
