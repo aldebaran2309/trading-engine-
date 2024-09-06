@@ -1,52 +1,33 @@
 package tradingengine.model;
 
-import java.util.Date;
+import java.util.Collection;
+import java.util.Collections;
 
-public class PurchaseOrder extends IdModel {
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
-    private String productId;
-    private int remainingQuantity;
-    private int originalQuantity;
-    private double maximumAcceptedPrice;
-    private Date created;
-    private Buyer buyer;
+public abstract class Model {
 
-    public PurchaseOrder(String productId, int quantity,
-	    double maximumAcceptedPrice, int id) {
-	this.productId = productId;
-	this.remainingQuantity = quantity;
-	this.originalQuantity = quantity;
-	this.maximumAcceptedPrice = maximumAcceptedPrice;
-	this.created = new Date();
-	setId(id);
+    @Override
+    public boolean equals(Object o) {
+	return EqualsBuilder.reflectionEquals(this, o, getIgnoredFields());
     }
 
-    public void setBuyer(Buyer buyer) {
-	this.buyer = buyer;
+    protected Collection<String> getIgnoredFields() {
+	return Collections.emptySet();
     }
 
-    public String getProductId() {
-	return productId;
+    @Override
+    public int hashCode() {
+	return HashCodeBuilder.reflectionHashCode(this, getIgnoredFields());
     }
 
-    public Buyer getBuyer() {
-	return buyer;
-    }
-
-    public Date getCreated() {
-	return created;
-    }
-
-    public double getMaximumAcceptedPrice() {
-	return maximumAcceptedPrice;
-    }
-
-    public int getOriginalQuantity() {
-	return originalQuantity;
-    }
-
-    public int getRemainingQuantity() {
-	return remainingQuantity;
+    @Override
+    public String toString() {
+	return ToStringBuilder.reflectionToString(this,
+		ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }
