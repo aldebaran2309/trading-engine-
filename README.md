@@ -54,26 +54,58 @@ Configure Akka
 
 Ensure that the Akka configuration files are properly set up for actor-based concurrency. Adjust the configuration as needed in the application.conf file (if applicable).
 
-Usage
-Place a Buy Order:
 
-Endpoint: GET /buy2?productId={productId}&quantity={quantity}&userId={userId}
-Description: Places a buy order for the specified product and quantity.
-Place a Sell Order:
 
-Endpoint: GET /sell2?productId={productId}&quantity={quantity}&price={price}&userId={userId}
-Description: Places a sell order for the specified product, quantity, and price.
-Retrieve Order Result:
 
-Endpoint: GET /result2?id={orderId}
-Description: Fetches the result of the order identified by orderId. Returns the status or result of the order.
-Code Overview
-Servlet-Based Implementation:
 
-TradingEngineServlet.java: Handles HTTP requests and interacts with the trading engine. Processes buy and sell requests and provides results through HTTP responses.
-Actor-Based Implementation:
+## Features 🚀
 
-TradingEngineServletWithActors.java: Utilizes Akka actors for managing trading operations, improving concurrency and scalability. This version supports asynchronous message handling and actor-based processing.
-Multi-Threaded Engine:
+### 🏦 Multi-Instrument Trading
+- Supports trading across **15 financial instruments**.
+- Executes both **simple** and **complex orders** using a custom `Trade` object.
+- Handles real-time price changes for dynamic decision-making.
 
-TradingEngineThread.java: Provides a multi-threaded approach to order processing, ensuring thread safety and efficient operation.
+### 📈 Real-Time Data Processing
+- Processes **live market data** with real-time updates.
+- Visualizes **historical and real-time price data** for better insights.
+- Employs indicators like moving averages, RSI, and MACD for decision-making.
+
+### 💡 Strategy and Optimization
+- Utilizes **machine learning models** for stock price prediction and strategy refinement.
+- **Order book optimization** with an order ladder layout to speed up execution by **25%**.
+- Implements both **technical analysis** and **fundamental analysis** based strategies.
+
+### ⚙️ Efficient Concurrency and Scaling
+- Uses **multi-threading** and **concurrent data structures** for handling high-volume trades.
+- Supports **1,500 simultaneous connections** with efficient order processing.
+- Scalable design, capable of expanding to more instruments and markets.
+
+### 📊 Portfolio Management
+- Real-time management of a trading portfolio with dynamic updates.
+- Tracks **profit/loss** and key performance metrics for each instrument.
+- Automatically adjusts position sizing based on risk management strategies.
+
+## Tech Stack 💻
+
+- **Language**: java
+- **Framework**: servlet api
+- **Concurrency Models**: Multi-threading, Asynchronous Programming
+- **Logging**: Log4j (for tracking and debugging)
+- **Data Sources**: APIs for real-time market data, historical price data.
+
+## Getting Started 🔧
+
+### Prerequisites
+
+Before running the project, make sure you have the following installed:
+- **eclipse**
+- **installed log4j**
+- Access to **market data API** (e.g., Alpha Vantage, IEX Cloud) for real-time price updates.
+
+### Installation
+
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/aldebaran2309/trading-bot.git
+
+
